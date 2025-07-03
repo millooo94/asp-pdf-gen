@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Terranova Suka</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1><span class="fancy-title">TERRANOVA SUKA!</span></h1>
+
+    <div class="container">
+      <form id="form" method="POST" action="/fill" class="grid-form">
+        <label for="template">
+          Tipo di modulo:
+          <select name="template" id="template">
+            <option value="direttore-sanitario">Direttore Sanitario</option>
+            <option value="uomo" selected>Uomo</option>
+            <option value="donna">Donna</option>
+          </select>
+        </label>
+        <label for="tipo_rapporto">
+          Tipo di rapporto:
+          <select name="tipo_rapporto" id="tipo_rapporto">
+            <option value="">-- Seleziona --</option>
+            <option value="Dipendente">Dipendente</option>
+            <option value="Libero Professionista">Libero professionista</option>
+          </select>
+        </label>
+
+        <div class="inline-group">
+          <label>
+            Ore Settimanali:
+            <input
+              name="ore_settimanali"
+              placeholder="Es: 20"
+              autocomplete="off"
+            />
+          </label>
+          <label>
+            (Esteso):
+            <input
+              name="ore_settimanali_esteso"
+              placeholder="Es: venti"
+              autocomplete="off"
+            />
+          </label>
+        </div>
+
+        <label>
+          Decorrenza Incarico:
+          <div class="date-selects">
+            <select name="giorno_decorrenza_incarico">
+              <option value="">Giorno</option>
+            </select>
+            <select name="mese_decorrenza_incarico">
+              <option value="">Mese</option>
+              <option value="1">Gennaio</option>
+              <option value="2">Febbraio</option>
+              <option value="3">Marzo</option>
+              <option value="4">Aprile</option>
+              <option value="5">Maggio</option>
+              <option value="6">Giugno</option>
+              <option value="7">Luglio</option>
+              <option value="8">Agosto</option>
+              <option value="9">Settembre</option>
+              <option value="10">Ottobre</option>
+              <option value="11">Novembre</option>
+              <option value="12">Dicembre</option>
+            </select>
+            <select name="anno_decorrenza_incarico">
+              <option value="">Anno</option>
+            </select>
+          </div>
+        </label>
+
+        <label>
+          Fine Incarico:
+          <div class="date-selects">
+            <select name="giorno_fine_incarico">
+              <option value="">Giorno</option>
+            </select>
+            <select name="mese_fine_incarico">
+              <option value="">Mese</option>
+              <option value="1">Gennaio</option>
+              <option value="2">Febbraio</option>
+              <option value="3">Marzo</option>
+              <option value="4">Aprile</option>
+              <option value="5">Maggio</option>
+              <option value="6">Giugno</option>
+              <option value="7">Luglio</option>
+              <option value="8">Agosto</option>
+              <option value="9">Settembre</option>
+              <option value="10">Ottobre</option>
+              <option value="11">Novembre</option>
+              <option value="12">Dicembre</option>
+            </select>
+            <select name="anno_fine_incarico">
+              <option value="">Anno</option>
+            </select>
+          </div>
+        </label>
+
+        <label for="ruolo">
+          Ruolo:
+          <input
+            type="text"
+            name="ruolo"
+            id="ruolo"
+            value="Medico Specialista"
+            readonly
+          />
+        </label>
+
+        <label>
+          Nome Completo:
+          <input
+            name="nome_completo"
+            placeholder="Inserisci nome completo"
+            autocomplete="off"
+          />
+        </label>
+
+        <div class="inline-group">
+          <label>
+            Città di Nascita:
+            <input
+              name="luogo_nascita"
+              placeholder="Città"
+              autocomplete="off"
+            />
+          </label>
+          <label style="display: flex; flex-direction: column">
+            Provincia di Nascita (Sigla):
+            <input
+              name="luogo_nascita_sigla_provincia"
+              class="provincia"
+              maxlength="2"
+              placeholder="Sigla"
+              autocomplete="off"
+              style="text-transform: uppercase"
+            />
+          </label>
+        </div>
+
+        <label>
+          Data di Nascita:
+          <div class="date-selects">
+            <select name="giorno_data_nascita">
+              <option value="">Giorno</option>
+            </select>
+            <select name="mese_data_nascita">
+              <option value="">Mese</option>
+              <option value="1">Gennaio</option>
+              <option value="2">Febbraio</option>
+              <option value="3">Marzo</option>
+              <option value="4">Aprile</option>
+              <option value="5">Maggio</option>
+              <option value="6">Giugno</option>
+              <option value="7">Luglio</option>
+              <option value="8">Agosto</option>
+              <option value="9">Settembre</option>
+              <option value="10">Ottobre</option>
+              <option value="11">Novembre</option>
+              <option value="12">Dicembre</option>
+            </select>
+            <select name="anno_data_nascita">
+              <option value="">Anno</option>
+            </select>
+          </div>
+        </label>
+
+        <label>
+          Codice Fiscale:
+          <input
+            name="codice_fiscale"
+            placeholder="Inserisci codice fiscale"
+            autocomplete="off"
+          />
+        </label>
+
+        <div class="inline-group">
+          <label>
+            Città di Residenza:
+            <input
+              name="luogo_residenza"
+              placeholder="Città"
+              autocomplete="off"
+            />
+          </label>
+          <label style="display: flex; flex-direction: column">
+            Provincia di Residenza (Sigla):
+            <input
+              name="luogo_residenza_sigla_provincia"
+              class="provincia"
+              maxlength="2"
+              placeholder="Sigla"
+              autocomplete="off"
+              style="text-transform: uppercase"
+            />
+          </label>
+        </div>
+
+        <div class="inline-group">
+          <label>
+            Indirizzo di Residenza:
+            <input
+              name="indirizzo_residenza"
+              placeholder="Via/Piazza..."
+              autocomplete="off"
+            />
+          </label>
+          <label style="display: flex; flex-direction: column">
+            Numero civico:
+            <input
+              name="indirizzo_residenza_numero_civico"
+              class="numero-civico"
+              placeholder="#"
+              autocomplete="off"
+            />
+          </label>
+        </div>
+
+        <label>
+          Università di Laurea:
+          <input
+            name="universita_laurea"
+            placeholder="Inserisci università"
+            autocomplete="off"
+          />
+        </label>
+
+        <label>
+          Data di Laurea:
+          <div class="date-selects">
+            <select name="giorno_data_laurea">
+              <option value="">Giorno</option>
+            </select>
+            <select name="mese_data_laurea">
+              <option value="">Mese</option>
+              <option value="1">Gennaio</option>
+              <option value="2">Febbraio</option>
+              <option value="3">Marzo</option>
+              <option value="4">Aprile</option>
+              <option value="5">Maggio</option>
+              <option value="6">Giugno</option>
+              <option value="7">Luglio</option>
+              <option value="8">Agosto</option>
+              <option value="9">Settembre</option>
+              <option value="10">Ottobre</option>
+              <option value="11">Novembre</option>
+              <option value="12">Dicembre</option>
+            </select>
+            <select name="anno_data_laurea">
+              <option value="">Anno</option>
+            </select>
+          </div>
+        </label>
+
+        <label>
+          Ordine Dei Medici:
+          <input
+            name="provincia_ordine_medici"
+            placeholder="Provincia"
+            autocomplete="off"
+          />
+        </label>
+
+        <label>
+          Data Iscrizione (Ordine Dei Medici):
+          <div class="date-selects">
+            <select name="giorno_iscrizione_ordine_medici">
+              <option value="">Giorno</option>
+            </select>
+            <select name="mese_iscrizione_ordine_medici">
+              <option value="">Mese</option>
+              <option value="1">Gennaio</option>
+              <option value="2">Febbraio</option>
+              <option value="3">Marzo</option>
+              <option value="4">Aprile</option>
+              <option value="5">Maggio</option>
+              <option value="6">Giugno</option>
+              <option value="7">Luglio</option>
+              <option value="8">Agosto</option>
+              <option value="9">Settembre</option>
+              <option value="10">Ottobre</option>
+              <option value="11">Novembre</option>
+              <option value="12">Dicembre</option>
+            </select>
+            <select name="anno_iscrizione_ordine_medici">
+              <option value="">Anno</option>
+            </select>
+          </div>
+        </label>
+
+        <label>
+          Numero (Ordine Dei Medici):
+          <input
+            name="numero_ordine_medici"
+            placeholder="Numero Ordine"
+            autocomplete="off"
+          />
+        </label>
+
+        <label>
+          Scuola di Specializzazione:
+          <input
+            name="specializzazione"
+            placeholder="Inserisci specializzazione"
+            autocomplete="off"
+          />
+        </label>
+
+        <label>
+          Università di Specializzazione:
+          <input
+            name="universita_specializzazione"
+            placeholder="Inserisci università specializzazione"
+            autocomplete="off"
+          />
+        </label>
+
+        <label>
+          Data di Specializzazione:
+          <div class="date-selects">
+            <select name="giorno_specializzazione">
+              <option value="">Giorno</option>
+            </select>
+            <select name="mese_specializzazione">
+              <option value="">Mese</option>
+              <option value="1">Gennaio</option>
+              <option value="2">Febbraio</option>
+              <option value="3">Marzo</option>
+              <option value="4">Aprile</option>
+              <option value="5">Maggio</option>
+              <option value="6">Giugno</option>
+              <option value="7">Luglio</option>
+              <option value="8">Agosto</option>
+              <option value="9">Settembre</option>
+              <option value="10">Ottobre</option>
+              <option value="11">Novembre</option>
+              <option value="12">Dicembre</option>
+            </select>
+            <select name="anno_specializzazione">
+              <option value="">Anno</option>
+            </select>
+          </div>
+        </label>
+      </form>
+    </div>
+    <button type="submit" form="form">Genera</button>
+  </body>
+  <script>
+    // Funzione per popolare giorni (1-31)
+    function popolaGiorni() {
+      const giorniSelects = document.querySelectorAll(
+        'select[name^="giorno_"]'
+      );
+
+      giorniSelects.forEach((select) => {
+        for (let d = 1; d <= 31; d++) {
+          const option = document.createElement("option");
+          option.value = d;
+          option.textContent = d;
+          select.appendChild(option);
+        }
+      });
+    }
+
+    // Funzione per popolare anni dal 1940 al 2025
+    function popolaAnni() {
+      const anniSelects = document.querySelectorAll('select[name^="anno_"]');
+
+      anniSelects.forEach((select) => {
+        for (let anno = 1940; anno <= 2025; anno++) {
+          const option = document.createElement("option");
+          option.value = anno;
+          option.textContent = anno;
+          select.appendChild(option);
+        }
+      });
+    }
+
+    window.onload = function () {
+      popolaGiorni();
+      popolaAnni();
+    };
+  </script>
+</html>
